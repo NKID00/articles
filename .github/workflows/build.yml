@@ -9,6 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Download the fonts
         run: |
+          # Source Han Serif
           wget -q -P ./fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-ExtraLight.otf
           wget -q -P ./fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Light.otf
           wget -q -P ./fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Regular.otf
@@ -16,7 +17,10 @@ jobs:
           wget -q -P ./fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-SemiBold.otf
           wget -q -P ./fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Bold.otf
           wget -q -P ./fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Heavy.otf
-          fc-cache -fv
+          # DejaVu fonts
+          wget -q -P ./fonts/ https://github.com/dejavu-fonts/dejavu-fonts/releases/download/version_2_37/dejavu-fonts-ttf-2.37.zip
+          unzip -q -d ./fonts/ ./fonts/dejavu-fonts-ttf-2.37.zip
+          mv ./fonts/dejavu-fonts-ttf-2.37/ttf/* ./fonts/
       - name: Build
         uses: xu-cheng/latex-action@v2
         with:
