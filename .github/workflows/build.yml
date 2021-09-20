@@ -21,11 +21,11 @@ jobs:
           wget -q -P ./fonts/ https://github.com/dejavu-fonts/dejavu-fonts/releases/download/version_2_37/dejavu-fonts-ttf-2.37.zip
           unzip -q -d ./fonts/ ./fonts/dejavu-fonts-ttf-2.37.zip
           mv ./fonts/dejavu-fonts-ttf-2.37/ttf/* ./fonts/
-      - name: Build
+      - name: Build 'FromWallBasedStorageToMicroTiming'
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: |
-            FromWallBasedStorageToMicroTiming/FromWallBasedStorageToMicroTiming.tex
+          working_directory: ./FromWallBasedStorageToMicroTiming/
+          root_file: FromWallBasedStorageToMicroTiming.tex
           latexmk_use_xelatex: true
       - name: Get the date
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
