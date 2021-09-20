@@ -36,7 +36,7 @@ jobs:
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CUSTOM_TAG: ${{ format('build-{1}', github.run_number) }}
+          CUSTOM_TAG: ${{ format('build-{0}', github.run_number) }}
       - name: Release
         uses: softprops/action-gh-release@v0.1.13
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
