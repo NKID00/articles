@@ -16,6 +16,7 @@ jobs:
           wget -q -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-SemiBold.otf
           wget -q -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Bold.otf
           wget -q -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Heavy.otf
+          fc-cache -fv
       - name: Build
         uses: xu-cheng/latex-action@v2
         with:
