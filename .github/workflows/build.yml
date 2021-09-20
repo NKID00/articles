@@ -7,6 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Download the fonts
+        run: |
+          curl -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-ExtraLight.otf
+          curl -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Light.otf
+          curl -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Normal.otf
+          curl -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Regular.otf
+          curl -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Medium.otf
+          curl -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Bold.otf
+          curl -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Heavy.otf
       - name: Build
         uses: xu-cheng/latex-action@v2
         with:
@@ -14,6 +23,7 @@ jobs:
             FromWallStorageToMicroTiming/FromWallBasedStorageToMicroTiming.tex
           latexmk_use_xelatex: true
       - name: Get the date
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: |
           echo "DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_ENV
       - name: Release
