@@ -9,13 +9,13 @@ jobs:
       - uses: actions/checkout@v2
       - name: Download the fonts
         run: |
-          wget -P /usr/share/fonts/ https://raw.githubusercontent.com/adobe-fonts/source-han-serif/release/OTF/SimplifiedChinese/SourceHanSerifSC-ExtraLight.otf
-          wget -P /usr/share/fonts/ https://raw.githubusercontent.com/adobe-fonts/source-han-serif/release/OTF/SimplifiedChinese/SourceHanSerifSC-Light.otf
-          wget -P /usr/share/fonts/ https://raw.githubusercontent.com/adobe-fonts/source-han-serif/release/OTF/SimplifiedChinese/SourceHanSerifSC-Normal.otf
-          wget -P /usr/share/fonts/ https://raw.githubusercontent.com/adobe-fonts/source-han-serif/release/OTF/SimplifiedChinese/SourceHanSerifSC-Regular.otf
-          wget -P /usr/share/fonts/ https://raw.githubusercontent.com/adobe-fonts/source-han-serif/release/OTF/SimplifiedChinese/SourceHanSerifSC-Medium.otf
-          wget -P /usr/share/fonts/ https://raw.githubusercontent.com/adobe-fonts/source-han-serif/release/OTF/SimplifiedChinese/SourceHanSerifSC-Bold.otf
-          wget -P /usr/share/fonts/ https://raw.githubusercontent.com/adobe-fonts/source-han-serif/release/OTF/SimplifiedChinese/SourceHanSerifSC-Heavy.otf
+          wget -q -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-ExtraLight.otf
+          wget -q -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Light.otf
+          wget -q -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Regular.otf
+          wget -q -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Medium.otf
+          wget -q -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-SemiBold.otf
+          wget -q -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Bold.otf
+          wget -q -P /usr/share/fonts/ https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/SimplifiedChinese/SourceHanSerifSC-Heavy.otf
       - name: Build
         uses: xu-cheng/latex-action@v2
         with:
