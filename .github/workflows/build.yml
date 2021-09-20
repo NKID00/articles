@@ -41,6 +41,7 @@ jobs:
         uses: softprops/action-gh-release@v0.1.13
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         with:
+          tag_name: ${{ format('build-{0}', github.run_number) }}
           name: ${{ format('{0} build {1}', env.DATE, github.run_number) }}
           files: |
             FromWallBasedStorageToMicroTiming/FromWallBasedStorageToMicroTiming.pdf
