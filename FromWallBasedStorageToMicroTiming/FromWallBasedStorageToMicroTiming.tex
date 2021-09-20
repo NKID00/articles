@@ -10,7 +10,19 @@
 
 \geometry{a4paper,scale=0.8}
 
-\setCJKmainfont{Source Han Serif SC}
+\IfFontExistsTF{Source Han Serif SC}
+{
+    \setCJKmainfont{Source Han Serif SC}
+}
+{
+    \setCJKmainfont[
+        Path=../fonts/ ,    
+        Extension = .otf ,
+        UprightFont = *-Regular ,
+        BoldFont = *-Bold
+    ]{SourceHanSerifSC}
+}
+
 \setmainfont{DejaVu Sans}
 
 \title{基于石墙控制线的存储器内的\\微时序特性分析及应用}
