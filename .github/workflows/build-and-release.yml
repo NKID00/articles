@@ -32,6 +32,14 @@ jobs:
           latexmk_use_xelatex: true
           post_compile: |
             mv ./基于石墙控制线的存储器内的微时序特性分析及应用.pdf ${{ format('./FromWallBasedStorageToMicroTiming-{0}-build-{1}.pdf', env.DATE, github.run_number) }}
+      - name: Build '一种无背景Minecraft游戏截图的制作方式'
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: ./一种无背景Minecraft游戏截图的制作方式/
+          root_file: 一种无背景Minecraft游戏截图的制作方式.tex
+          latexmk_use_xelatex: true
+          post_compile: |
+            mv ./一种无背景Minecraft游戏截图的制作方式.pdf ${{ format('./TransparentMinecraftScreenShot-{0}-build-{1}.pdf', env.DATE, github.run_number) }}
       - name: Push tag
         uses: anothrNick/github-tag-action@1.36.0
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -46,6 +54,6 @@ jobs:
           name: ${{ format('{0} build {1}', env.DATE, github.run_number) }}
           body: |
             由于 GitHub Actions 上传 release 资源不支持 Unicode 文件名，已将文件重命名为以下 ASCII 文件名。
-
             - 基于石墙控制线的存储器内的微时序特性分析及应用 -> FromWallBasedStorageToMicroTiming
+            - 一种无背景Minecraft游戏截图的制作方式 -> TransparentMinecraftScreenShot
           files: ./**/*.pdf
