@@ -21,16 +21,17 @@ jobs:
           wget -q -P ./fonts/ https://github.com/dejavu-fonts/dejavu-fonts/releases/download/version_2_37/dejavu-fonts-ttf-2.37.zip
           unzip -q -d ./fonts/ ./fonts/dejavu-fonts-ttf-2.37.zip
           mv ./fonts/dejavu-fonts-ttf-2.37/ttf/* ./fonts/
-      - name: Build 'FromWallBasedStorageToMicroTiming'
-        uses: xu-cheng/latex-action@v2
-        with:
-          working_directory: ./FromWallBasedStorageToMicroTiming/
-          root_file: FromWallBasedStorageToMicroTiming.tex
-          latexmk_use_xelatex: true
       - name: Get date string
-        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: |
           echo "DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_ENV
+      - name: Build '基于石墙控制线的存储器内的微时序特性分析及应用'
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: ./基于石墙控制线的存储器内的微时序特性分析及应用/
+          root_file: 基于石墙控制线的存储器内的微时序特性分析及应用.tex
+          latexmk_use_xelatex: true
+          post_compile: |
+            mv ./基于石墙控制线的存储器内的微时序特性分析及应用/基于石墙控制线的存储器内的微时序特性分析及应用{.pdf,${{ format('-{0}-build-{1}', env.DATE, github.run_number) }}.pdf}
       - name: Push tag
         uses: anothrNick/github-tag-action@1.36.0
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -44,4 +45,4 @@ jobs:
           tag_name: ${{ format('build-{0}', github.run_number) }}
           name: ${{ format('{0} build {1}', env.DATE, github.run_number) }}
           files: |
-            FromWallBasedStorageToMicroTiming/FromWallBasedStorageToMicroTiming.pdf
+            *.pdf
