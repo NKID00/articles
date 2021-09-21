@@ -45,4 +45,4 @@ jobs:
           tag_name: ${{ format('build-{0}', github.run_number) }}
           name: ${{ format('{0} build {1}', env.DATE, github.run_number) }}
           files: |
-            *.pdf
+            ./基于石墙控制线的存储器内的微时序特性分析及应用/基于石墙控制线的存储器内的微时序特性分析及应用${{ format('-{0}-build-{1}', env.DATE, github.run_number) }}.pdf
