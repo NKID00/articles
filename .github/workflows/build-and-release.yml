@@ -54,7 +54,7 @@ jobs:
           tag_name: ${{ format('build-{0}', github.run_number) }}
           name: ${{ format('{0} build {1}', env.DATE, github.run_number) }}
           body: |
-            由于 GitHub Actions 上传 release 资源时不支持包含冒号和 Unicode 的文件名，已将文件重命名为以下文件名。
-            - `基于石墙控制线的存储器内的微时序特性分析及应用.pdf` -> `${{ format('FromWallBasedStorageToMicroTiming-{0}-build-{1}.pdf', env.DATE_FILE_NAME, github.run_number) }}`
-            - `一种无背景Minecraft游戏截图的制作方式.pdf` -> `${{ format('TransparentMinecraftScreenShot-{0}-build-{1}.pdf', env.DATE_FILE_NAME, github.run_number) }}`
+            由于 GitHub Actions 上传 release 资源时不支持包含冒号和 Unicode 的文件名，已将文件重命名。单击文件名将自动跳转到对应的文件：
+            - [基于石墙控制线的存储器内的微时序特性分析及应用.pdf](https://github.com/NKID00/articles/releases/download/${{ format('build-{1}/FromWallBasedStorageToMicroTiming-{0}-build-{1}.pdf', env.DATE_FILE_NAME, github.run_number) }})
+            - [一种无背景Minecraft游戏截图的制作方式.pdf](https://github.com/NKID00/articles/releases/download/${{ format('build-{1}/TransparentMinecraftScreenShot-{0}-build-{1}.pdf', env.DATE_FILE_NAME, github.run_number) }})
           files: ./**/*.pdf

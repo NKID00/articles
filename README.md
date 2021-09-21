@@ -1,4 +1,4 @@
-## 一些用 latex 写的文章
+## 一些用 LaTeX 写的文章
 
 编译好的 `.pdf` 文件可以在[最新的 release 页面](https://github.com/NKID00/articles/releases/latest)找到。
 
