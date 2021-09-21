@@ -31,7 +31,7 @@ jobs:
           root_file: 基于石墙控制线的存储器内的微时序特性分析及应用.tex
           latexmk_use_xelatex: true
           post_compile: |
-            mv ${{ format('./基于石墙控制线的存储器内的微时序特性分析及应用{{.pdf,-{0}-build-{1}.pdf}}', env.DATE, github.run_number) }}
+            mv ./基于石墙控制线的存储器内的微时序特性分析及应用.pdf ${{ format('./基于石墙控制线的存储器内的微时序特性分析及应用-{0}-build-{1}.pdf', env.DATE, github.run_number) }}
       - name: Push tag
         uses: anothrNick/github-tag-action@1.36.0
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -44,5 +44,4 @@ jobs:
         with:
           tag_name: ${{ format('build-{0}', github.run_number) }}
           name: ${{ format('{0} build {1}', env.DATE, github.run_number) }}
-          files: |
-            ${{ format('./基于石墙控制线的存储器内的微时序特性分析及应用/基于石墙控制线的存储器内的微时序特性分析及应用-{0}-build-{1}.pdf', env.DATE, github.run_number) }}
+          files: ./**/*.pdf
