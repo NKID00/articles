@@ -102,13 +102,13 @@
         \centering
         \begin{sequencediagram}
             \pgfumlsdunderlinefalse
-            \newinst[0]{wire-input}{信号输入}{}
+            \newinst[0]{wire-input}{输入使能}{}
             \newinst[0]{door-a}{活板门A}{}
             \newinst[0]{wall-a}{石墙A}{}
             \newinst[0]{observer-a}{侦测器A}{}
             \newinst[0]{comparator-a}{比较器A}{}
             \newinst[0]{repeater}{中继器}{}
-            \newinst[0]{wire-output}{信号输出}{}
+            \newinst[0]{wire-output}{存储信号}{}
             \newinst[1]{tile-tick}{计划刻系统}{}
 
             \timestamp{1游戏刻}
@@ -162,6 +162,7 @@
             \mess[0]{repeater}{解锁}{wire-output}
 
             \highlightbegin{repeater}
+            \highlightbegin{wire-output}
 
             \mess[0]{tile-tick}{执行计划刻}{comparator-a}
             \mess[0]{comparator-a}{激活}{repeater}
@@ -177,6 +178,7 @@
             \mess[0]{repeater}{锁存}{wire-output}
 
             \highlightend{repeater}
+            \highlightend{wire-output}
         \end{sequencediagram}
         \caption{2游戏刻脉冲激活输入控制时钟信号线时各元件的微时序状态}
         \label{fig:micro-timing-sequence-input-2gt}
@@ -186,13 +188,13 @@
         \centering
         \begin{sequencediagram}
             \pgfumlsdunderlinefalse
-            \newinst[0]{wire-input}{信号输入}{}
+            \newinst[0]{wire-input}{输出使能}{}
             \newinst[0]{door-b}{活板门B}{}
             \newinst[0]{wall-b}{石墙B}{}
             \newinst[0]{observer-b}{侦测器B}{}
             \newinst[0]{observer-c}{侦测器C}{}
             \newinst[0]{comparator-b}{比较器B}{}
-            \newinst[0]{wire-output}{信号输出}{}
+            \newinst[0]{wire-output}{输出}{}
             \newinst[1]{tile-tick}{计划刻系统}{}
 
             \timestamp{1游戏刻}
@@ -255,13 +257,13 @@
         \centering
         \begin{sequencediagram}
             \pgfumlsdunderlinefalse
-            \newinst[0]{wire-input}{信号输入}{}
+            \newinst[0]{wire-input}{输出使能}{}
             \newinst[0]{door-b}{活板门B}{}
             \newinst[0]{wall-b}{石墙B}{}
             \newinst[0]{observer-b}{侦测器B}{}
             \newinst[0]{observer-c}{侦测器C}{}
             \newinst[0]{comparator-b}{比较器B}{}
-            \newinst[0]{wire-output}{信号输出}{}
+            \newinst[0]{wire-output}{输出}{}
             \newinst[1]{tile-tick}{计划刻系统}{}
 
             \timestamp{1游戏刻}
@@ -314,6 +316,7 @@
             \mess[0]{comparator-b}{激活}{wire-output}
 
             \highlightbegin{comparator-b}
+            \highlightbegin{wire-output}
     
             \mess[0]{tile-tick}{执行计划刻}{observer-c}
             \mess[0]{observer-c}{熄灭}{comparator-b}
@@ -329,6 +332,7 @@
             \mess[0]{comparator-b}{熄灭}{wire-output}
 
             \highlightend{comparator-b}
+            \highlightend{wire-output}
         \end{sequencediagram}
         \caption{延长的2游戏刻脉冲激活输出控制时钟信号线时各元件的微时序状态}
         \label{fig:micro-timing-sequence-output-longer-2gt}
@@ -353,11 +357,11 @@
         \centering
         \begin{sequencediagram}
             \pgfumlsdunderlinefalse
-            \newinst[0]{wire-input}{信号输入}{}
+            \newinst[0]{wire-input}{输入}{}
             \newinst[0]{note-block}{音符盒}{}
             \newinst[0]{observer}{侦测器}{}
             \newinst[0]{repeater}{中继器}{}
-            \newinst[0]{wire-output}{信号输出}{}
+            \newinst[0]{wire-output}{输出}{}
             \newinst[1]{tile-tick}{计划刻系统}{}
 
             \timestamp{1游戏刻}
@@ -379,6 +383,7 @@
             \mess[0]{repeater}{激活}{wire-output}
 
             \highlightbegin{repeater}
+            \highlightbegin{wire-output}
 
             \mess[0]{wire-output}{添加下游的计划刻*}{tile-tick}
             \mess[0]{wire-input}{熄灭}{repeater}
@@ -409,6 +414,7 @@
             \mess[0]{observer}{熄灭}{wire-output}
 
             \highlightend{observer}
+            \highlightend{wire-output}
         \end{sequencediagram}
         \caption{信号延长器接受来自侦测器的2游戏刻脉冲时各元件的微时序状态}
         \label{fig:micro-timing-sequence-signal-extender-2gt}
@@ -418,11 +424,11 @@
         \centering
         \begin{sequencediagram}
             \pgfumlsdunderlinefalse
-            \newinst[0]{wire-input}{信号输入}{}
+            \newinst[0]{wire-input}{输入}{}
             \newinst[0]{note-block}{音符盒}{}
             \newinst[0]{observer}{侦测器}{}
             \newinst[0]{repeater}{中继器}{}
-            \newinst[0]{wire-output}{信号输出}{}
+            \newinst[0]{wire-output}{输出}{}
             \newinst[1]{tile-tick}{计划刻系统}{}
 
             \timestamp{1游戏刻}
@@ -452,6 +458,7 @@
             \mess[0]{repeater}{激活}{wire-output}
 
             \highlightbegin{repeater}
+            \highlightbegin{wire-output}
 
             \mess[0]{wire-output}{添加下游的计划刻*}{tile-tick}
             \mess[0]{tile-tick}{执行计划刻}{observer}
@@ -472,6 +479,7 @@
             \mess[0]{observer}{熄灭}{wire-output}
 
             \highlightend{observer}
+            \highlightend{wire-output}
 
             \mess[0]{tile-tick}{执行下游的计划刻（失败）}{wire-output}
         \end{sequencediagram}
@@ -480,7 +488,7 @@
     \end{figure}
     
     \begin{thebibliography}{99}
-        \bibitem{bib:wall-based-storage}辰占鳌头. 基于石墙电路的随机存储器[J/OL]. 红石数电评论, 2021, 9.
+        \bibitem{bib:wall-based-storage}辰占鳌头. 基于石墙电路的随机存储器[J/OL]. 红石数电评论, 2021, 10.
         \bibitem{bib:wall}森森. 关于“墙”在Minecraft红石数字电路中的应用[J/OL]. 红色的粉末, 2020. \url{https://zhuanlan.zhihu.com/p/375262793}.
         \bibitem{bib:tile-tick}Fallen\_Breath. 计划刻[J/OL]. 深度剖析Minecraft, 2020, 3. \url{https://fallenbreath.me/2020/09/16/deeply-dissecting-minecraft_3/}.
         \bibitem{bib:tile-tick-component}Fallen\_Breath. 计划刻元件[J/OL]. 深度剖析Minecraft, 2020, 3.4. \url{https://fallenbreath.me/2020/09/17/deeply-dissecting-minecraft_3.4/}.
