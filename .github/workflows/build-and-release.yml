@@ -21,7 +21,7 @@ jobs:
           wget -q -P ./fonts/ https://github.com/dejavu-fonts/dejavu-fonts/releases/download/version_2_37/dejavu-fonts-ttf-2.37.zip
           unzip -q -d ./fonts/ ./fonts/dejavu-fonts-ttf-2.37.zip
           mv ./fonts/dejavu-fonts-ttf-2.37/ttf/* ./fonts/
-      - name: Get date string
+      - name: Get timestamp
         run: |
           echo "DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_ENV
           echo "DATE_FILE_NAME=$(date -u +'%Y-%m-%dT%H%M%SZ')" >> $GITHUB_ENV
@@ -41,14 +41,12 @@ jobs:
           latexmk_use_xelatex: true
           post_compile: |
             mv ./一种无背景Minecraft游戏截图的制作方式.pdf ${{ format('./TransparentMinecraftScreenShot-{0}-build-{1}.pdf', env.DATE_FILE_NAME, github.run_number) }}
-      - name: Push tag
-        uses: anothrNick/github-tag-action@1.36.0
+      - uses: anothrNick/github-tag-action@1.36.0
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CUSTOM_TAG: ${{ format('build-{0}', github.run_number) }}
-      - name: Release
-        uses: softprops/action-gh-release@v0.1.13
+      - uses: softprops/action-gh-release@v0.1.13
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         with:
           tag_name: ${{ format('build-{0}', github.run_number) }}
@@ -58,3 +56,10 @@ jobs:
             - [基于石墙控制线的存储器内的微时序特性分析及应用.pdf](https://github.com/NKID00/articles/releases/download/${{ format('build-{1}/FromWallBasedStorageToMicroTiming-{0}-build-{1}.pdf', env.DATE_FILE_NAME, github.run_number) }})
             - [一种无背景Minecraft游戏截图的制作方式.pdf](https://github.com/NKID00/articles/releases/download/${{ format('build-{1}/TransparentMinecraftScreenShot-{0}-build-{1}.pdf', env.DATE_FILE_NAME, github.run_number) }})
           files: ./**/*.pdf
+      - uses: dev-drprasad/delete-older-releases@v0.2.0
+        with:
+          keep_latest: 3
+          delete_tags: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
