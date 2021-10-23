@@ -107,7 +107,7 @@
             \newinst[0]{wall-a}{石墙A}{}
             \newinst[0]{observer-a}{侦测器A}{}
             \newinst[0]{comparator-a}{比较器A}{}
-            \newinst[0]{repeater-a}{中继器A}{}
+            \newinst[0]{repeater}{中继器}{}
             \newinst[0]{wire-output}{信号输出}{}
             \newinst[1]{tile-tick}{计划刻系统}{}
 
@@ -143,11 +143,11 @@
             \timestamp{5游戏刻}
 
             \mess[0]{tile-tick}{执行计划刻（优先级为-1）}{comparator-a}
-            \mess[0]{comparator-a}{熄灭}{repeater-a}
+            \mess[0]{comparator-a}{熄灭}{repeater}
 
             \highlightbegin{comparator-a}
 
-            \mess[0]{repeater-a}{添加计划刻（优先级为-2）}{tile-tick}
+            \mess[0]{repeater}{添加计划刻（优先级为-2）}{tile-tick}
             \mess[0]{tile-tick}{执行计划刻}{observer-a}
             \mess[0]{observer-a}{侧面熄灭}{comparator-a}
 
@@ -158,25 +158,25 @@
             \timestamp{6游戏刻}
             \timestamp{7游戏刻}
 
-            \mess[0]{tile-tick}{执行计划刻}{repeater-a}
-            \mess[0]{repeater-a}{解锁}{wire-output}
+            \mess[0]{tile-tick}{执行计划刻}{repeater}
+            \mess[0]{repeater}{解锁}{wire-output}
 
-            \highlightbegin{repeater-a}
+            \highlightbegin{repeater}
 
             \mess[0]{tile-tick}{执行计划刻}{comparator-a}
-            \mess[0]{comparator-a}{激活}{repeater-a}
+            \mess[0]{comparator-a}{激活}{repeater}
 
             \highlightend{comparator-a}
 
-            \mess[0]{repeater-a}{添加计划刻（优先级为-2）}{tile-tick}
+            \mess[0]{repeater}{添加计划刻（优先级为-2）}{tile-tick}
 
             \timestamp{8游戏刻}
             \timestamp{9游戏刻}
 
-            \mess[0]{tile-tick}{执行计划刻}{repeater-a}
-            \mess[0]{repeater-a}{锁存}{wire-output}
+            \mess[0]{tile-tick}{执行计划刻}{repeater}
+            \mess[0]{repeater}{锁存}{wire-output}
 
-            \highlightend{repeater-a}
+            \highlightend{repeater}
         \end{sequencediagram}
         \caption{2游戏刻脉冲激活输入控制时钟信号线时各元件的微时序状态}
         \label{fig:micro-timing-sequence-input-2gt}
