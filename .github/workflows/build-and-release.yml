@@ -38,9 +38,8 @@ jobs:
         uses: NKID00/latex-action@master
         with:
           extra_fonts: |
-            ./fonts/*.otf
-            ./fonts/*.ttf
-          # working_directory: ./基于石墙控制线的存储器内的微时序特性分析及应用/
+            ../fonts/*
+          working_directory: ./基于石墙控制线的存储器内的微时序特性分析及应用/
           root_file: 基于石墙控制线的存储器内的微时序特性分析及应用.tex
           latexmk_use_xelatex: true
           post_compile: |
@@ -49,9 +48,8 @@ jobs:
         uses: NKID00/latex-action@master
         with:
           extra_fonts: |
-            ./fonts/*.otf
-            ./fonts/*.ttf
-          # working_directory: ./一种无背景Minecraft游戏截图的制作方式/
+            ../fonts/*
+          working_directory: ./一种无背景Minecraft游戏截图的制作方式/
           root_file: 一种无背景Minecraft游戏截图的制作方式.tex
           latexmk_use_xelatex: true
           post_compile: |
