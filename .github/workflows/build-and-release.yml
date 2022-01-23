@@ -31,6 +31,8 @@ jobs:
           mv ~/dejavu-fonts-ttf-2.37/ttf/* ~/.fonts/
           # Install fonts
           fc-cache -v
+          tree ~/.fonts/
+          fc-list
       - name: Get timestamp
         run: |
           echo "DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_ENV
