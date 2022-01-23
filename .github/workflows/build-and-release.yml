@@ -33,6 +33,8 @@ jobs:
           fc-cache -v
           tree ~/.fonts/
           fc-list
+          otfinfo -i ~/.fonts/SourceHanSerifSC-Regular
+          otfinfo -i ~/.fonts/SourceHanSansSC-Regular
       - name: Get timestamp
         run: |
           echo "DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_ENV

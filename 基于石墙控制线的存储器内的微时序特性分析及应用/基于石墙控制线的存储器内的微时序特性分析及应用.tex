@@ -16,54 +16,10 @@
 \usepackage{ragged2e}
 
 % 字体
-\IfFontExistsTF{Source Han Serif SC}
-{
-    \setCJKmainfont{Source Han Serif SC}
-}
-{
-    % GitHub Actions
-    \setCJKmainfont[
-        Path=../fonts/ ,    
-        Extension = .otf ,
-        UprightFont = *-Regular ,
-        BoldFont = *-Bold
-    ]{SourceHanSerifSC}
-}
-\IfFontExistsTF{Source Han Sans SC}
-{
-    \setCJKsansfont{Source Han Sans SC}
-}
-{
-    % GitHub Actions
-    \setCJKsansfont[
-        Path=../fonts/ ,    
-        Extension = .otf ,
-        UprightFont = *-Regular ,
-        BoldFont = *-Bold
-    ]{SourceHanSansSC}
-}
-\IfFontExistsTF{DejaVu Sans}
-{
-    \setmainfont{DejaVu Sans}
-    \setsansfont{DejaVu Sans}
-}
-{
-    % GitHub Actions
-    \setmainfont[
-        Path=../fonts/ ,    
-        Extension = .ttf ,
-        BoldFont = *-Bold ,
-        ItalicFont = *-Oblique ,
-        BoldItalicFont = *-BoldOblique
-    ]{DejaVuSans}
-    \setsansfont[
-        Path=../fonts/ ,    
-        Extension = .ttf ,
-        BoldFont = *-Bold ,
-        ItalicFont = *-Oblique ,
-        BoldItalicFont = *-BoldOblique
-    ]{DejaVuSans}
-}
+\setCJKmainfont{Source Han Serif SC}
+\setCJKsansfont{Source Han Sans SC}
+\setmainfont{DejaVu Sans}
+\setsansfont{DejaVu Sans}
 
 % 布局
 \geometry{a4paper,left=2cm,right=2cm,top=2.5cm,bottom=2.5cm}
