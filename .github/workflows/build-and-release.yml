@@ -30,7 +30,7 @@ jobs:
           unzip -q -d ~/ ~/dejavu-fonts-ttf-2.37.zip
           mv ~/dejavu-fonts-ttf-2.37/ttf/* ~/.fonts/
           # Install fonts
-          fc-cache
+          fc-cache -v
       - name: Get timestamp
         run: |
           echo "DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_ENV
