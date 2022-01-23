@@ -36,7 +36,9 @@ jobs:
       - name: Build '基于石墙控制线的存储器内的微时序特性分析及应用'
         uses: xu-cheng/latex-action@v2
         with:
-          extra_fonts: ~/fonts/*
+          extra_fonts: |
+            ~/fonts/*.otf
+            ~/fonts/*.ttf
           working_directory: ./基于石墙控制线的存储器内的微时序特性分析及应用/
           root_file: 基于石墙控制线的存储器内的微时序特性分析及应用.tex
           latexmk_use_xelatex: true
@@ -45,7 +47,9 @@ jobs:
       - name: Build '一种无背景Minecraft游戏截图的制作方式'
         uses: xu-cheng/latex-action@v2
         with:
-          extra_fonts: ~/fonts/*
+          extra_fonts: |
+            ~/fonts/*.otf
+            ~/fonts/*.ttf
           working_directory: ./一种无背景Minecraft游戏截图的制作方式/
           root_file: 一种无背景Minecraft游戏截图的制作方式.tex
           latexmk_use_xelatex: true
