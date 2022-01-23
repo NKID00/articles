@@ -27,7 +27,7 @@ jobs:
           wget -q -P ./fonts/ https://github.com/adobe-fonts/source-han-sans/raw/release/OTF/SimplifiedChinese/SourceHanSansSC-Heavy.otf
           # DejaVu fonts
           wget -q -P ./fonts/ https://github.com/dejavu-fonts/dejavu-fonts/releases/download/version_2_37/dejavu-fonts-ttf-2.37.zip
-          unzip -q -d ./fonts/ /opt/fonts/dejavu-fonts-ttf-2.37.zip
+          unzip -q -d ./fonts/ ./fonts/dejavu-fonts-ttf-2.37.zip
           mv ./fonts/dejavu-fonts-ttf-2.37/ttf/* ./fonts/
       - name: Get timestamp
         run: |
