@@ -35,7 +35,7 @@ jobs:
           echo "DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_ENV
           echo "DATE_FILE_NAME=$(date -u +'%Y-%m-%dT%H%M%SZ')" >> $GITHUB_ENV
       - name: Build '基于石墙控制线的存储器内的微时序特性分析及应用'
-        uses: NKID00/latex-action
+        uses: NKID00/latex-action@master
         with:
           extra_fonts: |
             ./fonts/*.otf
@@ -46,7 +46,7 @@ jobs:
           post_compile: |
             mv ./基于石墙控制线的存储器内的微时序特性分析及应用.pdf ${{ format('./FromWallBasedStorageToMicroTiming-{0}-build-{1}.pdf', env.DATE_FILE_NAME, github.run_number) }}
       - name: Build '一种无背景Minecraft游戏截图的制作方式'
-        uses: NKID00/latex-action
+        uses: NKID00/latex-action@master
         with:
           extra_fonts: |
             ./fonts/*.otf
